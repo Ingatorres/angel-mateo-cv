@@ -20,7 +20,7 @@
     <!-- Animate.css para animaciones de entrada -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!-- ESTILOS PERSONALIZADOS -->
+    <!-- ESTILOS PERSONALIZADOS INLINE -->
     <style>
         body {
             font-family: 'Inter', sans-serif; /* Texto principal */
@@ -136,10 +136,10 @@
         @media print {
             body {
                 padding-top: 0 !important;
-                -webkit-print-color-adjust: exact; /* Asegura que los colores se impriman como son */
+                -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .navbar, .btn, footer, .animate__animated { /* Ocultar elementos no deseados y animaciones */
+            .navbar, .btn, footer, .animate__animated {
                 display: none !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -147,10 +147,10 @@
                 animation: none !important;
             }
             main {
-                padding-top: 0 !important; /* Eliminar padding superior */
+                padding-top: 0 !important;
             }
             section {
-                padding: 1cm !important; /* Márgenes consistentes para secciones */
+                padding: 1cm !important;
                 margin: 0 !important;
                 box-shadow: none !important;
                 background-color: white !important;
@@ -171,32 +171,30 @@
                 border: none !important;
                 box-shadow: none !important;
             }
-            .d-print-block { display: block !important; } /* Para elementos que solo deben verse en impresión */
-            .d-print-none { display: none !important; }   /* Para elementos que NO deben verse en impresión */
+            .d-print-block { display: block !important; }
+            .d-print-none { display: none !important; }
 
-            /* Ajustes específicos para elementos que no se ven bien en impresión */
             .timeline-item {
-                border-left: 1px solid #ddd !important; /* Asegurar que la línea de tiempo se vea en PDF */
+                border-left: 1px solid #ddd !important;
             }
             .timeline-item:last-child {
-                border-left: 1px solid #ddd !important; /* Asegurar que la línea de tiempo se vea en PDF */
+                border-left: 1px solid #ddd !important;
             }
             .timeline-icon {
-                box-shadow: none !important; /* Eliminar sombras en iconos de timeline en PDF */
-                background-color: #eee !important; /* Color más suave para el icono en PDF */
+                box-shadow: none !important;
+                background-color: #eee !important;
                 border: 1px solid #ccc !important;
                 color: #333 !important;
             }
             .references-phone {
-                color: #333 !important; /* Asegurar contraste para teléfonos en PDF */
+                color: #333 !important;
             }
-            .btn-warning { /* Ocultar el botón de LinkedIn en PDF */
+            .btn-warning {
                 display: none !important;
             }
 
-            /* Footer para el PDF, usando ::after para el contenido dinámico */
             footer.pdf-footer-text {
-              visibility: hidden; /* Oculta el footer normal */
+              visibility: hidden;
               height: 0;
               overflow: hidden;
             }
@@ -205,7 +203,7 @@
               display: block;
               visibility: visible;
               position: fixed;
-              bottom: 1cm; /* Posición al final de la página */
+              bottom: 1cm;
               left: 0;
               right: 0;
               text-align: center;
