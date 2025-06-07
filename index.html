@@ -2,8 +2,8 @@
     <html lang="es">
       <head>
         <meta charset="UTF-8" />
-        <!-- CORRECCIÓN: Ruta relativa para vite.svg -->
-        <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+        <!-- Ruta para vite.svg, asumiendo que está en la carpeta public -->
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CV Ángel Mateo Torres Barco</title>
 
@@ -109,113 +109,30 @@
                 text-align: justify;
             }
 
-            /* Estilos para el carrusel de referencias */
+            /* Puedes añadir aquí estilos específicos para el carrusel de referencias si lo reintroduces */
             #referencesCarousel .carousel-item {
-                padding: 1rem 0; /* Espacio interno para las tarjetas */
+                padding: 1rem 0;
             }
             #referencesCarousel .carousel-control-prev,
             #referencesCarousel .carousel-control-next {
-                width: 5%; /* Controles más estrechos */
+                width: 5%;
                 opacity: 0.7;
             }
             #referencesCarousel .carousel-control-prev-icon,
             #referencesCarousel .carousel-control-next-icon {
-                background-image: none; /* Eliminar íconos predeterminados de Bootstrap */
-                color: var(--bs-primary); /* Color de los íconos */
+                background-image: none;
+                color: var(--bs-primary);
                 font-size: 2rem;
             }
             #referencesCarousel .carousel-indicators [data-bs-target] {
-                background-color: var(--bs-primary); /* Color de los indicadores */
+                background-color: var(--bs-primary);
             }
-            /* Ajuste para teléfonos en el carrusel */
             .references-phone {
-                color: var(--bs-primary) !important; /* Color primario para mayor contraste */
+                color: var(--bs-primary) !important;
                 font-weight: bold;
             }
-
-            /* Estilos para impresión */
-            @media print {
-                body {
-                    padding-top: 0 !important;
-                    -webkit-print-color-adjust: exact; /* Asegura que los colores se impriman como son */
-                    print-color-adjust: exact;
-                }
-                .navbar, .btn, footer, .animate__animated { /* Ocultar elementos no deseados y animaciones */
-                    display: none !important;
-                    visibility: hidden !important;
-                    opacity: 0 !important;
-                    transform: none !important;
-                    animation: none !important;
-                }
-                main {
-                    padding-top: 0 !important; /* Eliminar padding superior */
-                }
-                section {
-                    padding: 1cm !important; /* Márgenes consistentes para secciones */
-                    margin: 0 !important;
-                    box-shadow: none !important;
-                    background-color: white !important;
-                    border-radius: 0 !important;
-                    border: none !important;
-                }
-                .container, .container-fluid {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    padding: 0 !important;
-                    margin: 0 !important;
-                }
-                h1, h2, h3, h4, h5, h6, p, li, a {
-                    color: black !important;
-                    background-color: transparent !important;
-                }
-                .img-fluid, .rounded-circle {
-                    border: none !important;
-                    box-shadow: none !important;
-                }
-                .d-print-block { display: block !important; } /* Para elementos que solo deben verse en impresión */
-                .d-print-none { display: none !important; }   /* Para elementos que NO deben verse en impresión */
-
-                /* Ajustes específicos para elementos que no se ven bien en impresión */
-                .timeline-item {
-                    border-left: 1px solid #ddd !important; /* Asegurar que la línea de tiempo se vea en PDF */
-                }
-                .timeline-item:last-child {
-                    border-left: 1px solid #ddd !important; /* Asegurar que la línea de tiempo se vea en PDF */
-                }
-                .timeline-icon {
-                    box-shadow: none !important; /* Eliminar sombras en iconos de timeline en PDF */
-                    background-color: #eee !important; /* Color más suave para el icono en PDF */
-                    border: 1px solid #ccc !important;
-                    color: #333 !important;
-                }
-                .references-phone {
-                    color: #333 !important; /* Asegurar contraste para teléfonos en PDF */
-                }
-                .btn-warning { /* Ocultar el botón de LinkedIn en PDF */
-                    display: none !important;
-                }
-
-                /* Footer para el PDF, usando ::after para el contenido dinámico */
-                footer.pdf-footer-text {
-                  visibility: hidden; /* Oculta el footer normal */
-                  height: 0;
-                  overflow: hidden;
-                }
-                footer.pdf-footer-text::after {
-                  content: "Documento elaborado por Ing. Ángel Mateo Torres – con apoyo estratégico de IA generativa.";
-                  display: block;
-                  visibility: visible;
-                  position: fixed;
-                  bottom: 1cm; /* Posición al final de la página */
-                  left: 0;
-                  right: 0;
-                  text-align: center;
-                  font-size: 9px;
-                  color: #555 !important;
-                }
-            }
         </style>
-        <script type="module" crossorigin src="/angel-mateo-cv/assets/index-GQRUwr8R.js"></script>
+        <script type="module" crossorigin src="/angel-mateo-cv/assets/index-Br-ipdmD.js"></script>
       </head>
       <body>
         <div id="root"></div> <!-- Punto de montaje de tu aplicación React -->
