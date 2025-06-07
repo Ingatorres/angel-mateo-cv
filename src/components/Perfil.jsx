@@ -1,60 +1,48 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { cvData } from '../data'; // <--- ¡Asegúrate de que esta línea esté correcta!
-import { Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+    import React from 'react';
+    import { motion } from 'framer-motion';
+    import { cvData } from '../data';
 
-function Perfil() {
-  const { personal, perfilEjecutivo } = cvData;
+    function Perfil() {
+      const { personal, perfilEjecutivo } = cvData;
 
-  return (
-    <motion.section
-      id="perfil"
-      className="container my-5 p-4 bg-light shadow rounded-lg animate__animated animate__fadeInUp"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="row align-items-center g-4">
-        <div className="col-auto mx-auto mx-md-0">
-          <img
-            src={personal.foto}
-            alt="Foto de Perfil de Ángel Mateo Torres"
-            className="img-fluid rounded-circle border border-info border-4 shadow-sm"
-            style={{ width: '150px', height: '150px', objectFit: 'cover' }}
-          />
-        </div>
-        <div className="col text-center text-md-start">
-          <h1 className="display-4 fw-bold text-primary mb-2">
-            {personal.nombre}
-          </h1>
-          <h2 className="h4 fw-semibold text-info mb-3">
-            {personal.titulo}
-          </h2>
-          <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 text-dark text-lg mb-4">
-            <p className="d-flex align-items-center me-3 mb-0">
-              <MapPin size={20} className="text-success me-2" /> {personal.ubicacion}
-            </p>
-            <a href={`mailto:${personal.email}`} className="d-flex align-items-center me-3 mb-0 text-decoration-none text-dark hover-accent">
-              <Mail size={20} className="text-success me-2" /> {personal.email}
-            </a>
-            <p className="d-flex align-items-center mb-0">
-              <Phone size={20} className="text-success me-2" /> {personal.telefonos}
-            </p>
-            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="d-flex align-items-center mb-0 text-decoration-none text-dark hover-accent">
-              <Linkedin size={20} className="text-success me-2" /> LinkedIn
-            </a>
+      return (
+        <motion.section
+          id="perfil"
+          className="my-5 p-4 bg-light shadow rounded-lg animate__animated animate__fadeIn"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="row align-items-center">
+            <div className="col-md-4 text-center">
+              <img
+                src={personal.foto}
+                alt="Foto de Perfil"
+                className="img-fluid rounded-circle shadow-sm"
+                style={{ width: '150px', height: '150px', objectFit: 'cover' }}
+                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/cccccc/333333?text=Tu+Foto'; }}
+              />
+            </div>
+            <div className="col-md-8 text-md-start mt-4 mt-md-0">
+              <h1 className="display-5 fw-bold text-primary mb-2">{personal.nombre}</h1>
+              <h2 className="lead text-info-emphasis mb-3">{personal.titulo}</h2>
+              <p className="text-dark text-justify">{perfilEjecutivo}</p>
+              <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 mt-4">
+                <span className="d-flex align-items-center text-dark"><i className="bi bi-geo-alt-fill me-2 text-primary"></i> {personal.ubicacion}</span>
+                <span className="d-flex align-items-center text-dark"><i className="bi bi-envelope-fill me-2 text-primary"></i> <a href={`mailto:${personal.email}`} className="text-decoration-none text-dark">{personal.email}</a></span>
+                <span className="d-flex align-items-center text-dark"><i className="bi bi-phone-fill me-2 text-primary"></i> {personal.telefonos}</span>
+                {personal.linkedin && personal.linkedin !== "" && (
+                  <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm d-flex align-items-center">
+                    <i className="bi bi-linkedin me-2"></i> LinkedIn
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="mt-4 pt-4 border-top border-info-subtle">
-        <h3 className="h4 fw-bold text-primary mb-3"><i className="bi bi-person-fill me-2"></i> Perfil Ejecutivo</h3>
-        <p className="lead text-dark text-justify">
-          {perfilEjecutivo.trim()}
-        </p>
-      </div>
-    </motion.section>
-  );
-}
+        </motion.section>
+      );
+    }
 
-export default Perfil;
+    export default Perfil;
+    

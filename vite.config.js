@@ -1,31 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+    import { defineConfig } from 'vite';
+    import react from '@vitejs/plugin-react';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-let base = '/';
-try {
-  const packageJsonPath = resolve(__dirname, 'package.json');
-  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
-  if (packageJson.homepage) {
-    const url = new URL(packageJson.homepage);
-    base = url.pathname;
-    if (!base.endsWith('/')) {
-      base += '/';
-    }
-  } else {
-    base = '/angel-mateo-cv/'; // <-- ¡AJUSTA ESTO CON EL NUEVO NOMBRE DE TU REPOSITORIO!
-  }
-} catch (error) {
-  console.warn("No se pudo leer package.json para determinar la base, usando la ruta por defecto.");
-  base = '/angel-mateo-cv/'; // Fallback si hay un error
-}
-
-export default defineConfig({
-  plugins: [react()],
-  base: base,
-})
+    // https://vitejs.dev/config/
+    export default defineConfig({
+      plugins: [react()],
+      // **¡MUY IMPORTANTE!** La base de tu despliegue para GitHub Pages.
+      // Debe ser el nombre EXACTO de tu repositorio de GitHub, rodeado por diagonales.
+      // Por ejemplo, si tu repositorio se llama 'angel-mateo-cv', la línea es:
+      base: '/angel-mateo-cv/', // <--- ¡Confirma que 'angel-mateo-cv' es el nombre exacto de tu repositorio!
+      build: {
+        outDir: 'dist', // La carpeta de salida por defecto para los archivos compilados
+      }
+    });
+    
